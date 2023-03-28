@@ -1,0 +1,22 @@
+{
+  "name": "job-interview-assignments",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raghul1995/express-demo-assign.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Raghul1995/express-demo-assign/issues"
+  },
+  "homepage": "https://github.com/Raghul1995/express-demo-assign#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
