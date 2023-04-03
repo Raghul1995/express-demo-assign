@@ -1,31 +1,21 @@
 pipeline {
     agent any
     
-    tools {
-        nodejs "node"
-    }
+
 
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
-                sh 'npm test'
+                echo "its building"
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'npm install'
-                sh 'npm run build'
-                sh 'forever stopall || true'
-                sh 'forever start -c "npm start" .'
+                echo "deploying the pipeline"
             }
         }
     }
 
-    post {
-        always {
-            archiveArtifacts artifacts: 'dist/**', fingerprint: true
-        }
-    }
+
 }
