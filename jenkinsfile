@@ -1,21 +1,12 @@
-pipeline {
-    agent any
-    
+node {
 
+    checkout scm
 
-    stages {
-        stage('Build') {
-            steps {
-                echo "building the pipeline"
-            }
-        }
+    docker.withRegistry('https://registry.hub.docker.com', 'docker') {
 
-        stage('Deploy') {
-            steps {
-                echo "deploying the pipeline in the jenkins"
-            }
-        }
+        def customImage = docker.build("raghul1995/express-demo-app")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
     }
-
-
 }
