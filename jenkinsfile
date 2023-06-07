@@ -1,4 +1,4 @@
-node {
+/*node {
 
     checkout scm
 
@@ -6,7 +6,46 @@ node {
 
         def customImage = docker.build("raghul1995/express-demo-app")
 
-        /* Push the container to the custom Registry */
         customImage.push()
     }
-}
+} */
+pipeline {
+    environment {
+    registry = "raghul1995/express-demo-app"
+    registryCredential = 'dockerhub'
+    dockerImage = ''
+    }
+
+    agent any
+    stages {
+            stage('Cloning our Git') {
+                steps {
+                git 'https://github.com/Raghul1995/express-demo-assign.git'
+                }
+            }
+
+            stage('Building Docker Image') {
+                steps {
+                    script {
+                        dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    }
+                }
+            }
+
+            stage('Deploying Docker Image to Dockerhub') {
+                steps {
+                    script {
+                        docker.withRegistry('', registryCredential) {
+                        dockerImage.push()
+                        }
+                    }
+                }
+            }
+
+            stage('Cleaning Up') {
+                steps{
+                  sh "docker rmi --force $registry:$BUILD_NUMBER"
+                }
+            }
+        }
+    }
