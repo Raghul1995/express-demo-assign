@@ -1,38 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-deployment
-  labels:
-    app: hello
+  name: app-deployment
 spec:
-  strategy:
-    type: Recreate
+  selector:
+    matchLabels:
+      app: my-app
   template:
     metadata:
       labels:
-        app: hello
-        tier: hello
+        app: my-app
     spec:
       containers:
-      - name: hello
-        image: raghul1995/express-demo-app
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 3000
-          name: hello
+        - name: my-app
+          image: raghul1995/express-demo-app
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
-  labels:
-    app: hello
+  name: app-service
 spec:
-  ports:
-  - port: 3000
-    targetPort: 3000
   selector:
-    app: hello
-    tier: hello
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
   type: LoadBalancer
