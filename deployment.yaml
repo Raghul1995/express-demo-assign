@@ -3,12 +3,11 @@ kind: Deployment
 metadata:
   name: app-deployment
 spec:
-strategy:
-  type: Recreate
+  strategy:
+    type: Recreate  # Added strategy field
   selector:
     matchLabels:
       app: my-app
-      
   template:
     metadata:
       labels:
