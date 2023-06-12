@@ -74,9 +74,9 @@ pipeline {
     agent any
     environment {
         PROJECT_ID = 'testing-387910'
-        CLUSTER_NAME = 'cluster-1'
-        LOCATION = 'us-central1-a'
-        CREDENTIALS_ID = 'testing'
+        CLUSTER_NAME = 'hello-world-new'
+        LOCATION = 'europe-north1-a'
+        CREDENTIALS_ID = 'test-GKE'
     }
     stages {
         stage("Checkout code") {
