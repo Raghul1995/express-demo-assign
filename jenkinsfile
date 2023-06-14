@@ -73,7 +73,7 @@
 pipeline {
     agent any
     environment {
-        PROJECT_ID = 'testing-387910'
+        PROJECT_ID = 'apps-defentry-stg'
         CLUSTER_NAME = 'hello-world-new'
         LOCATION = 'europe-north1-a'
         CREDENTIALS_ID = 'test-GKE'
