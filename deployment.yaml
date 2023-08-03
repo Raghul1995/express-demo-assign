@@ -62,7 +62,6 @@ metadata:
   name: hello-service
 spec:
   type: LoadBalancer
-  loadBalancerIP: 34.88.114.134:8080   # Updated loadBalancerIP
   selector:
     app: hello
   ports:
@@ -96,7 +95,6 @@ metadata:
   name: zone-printer-service
 spec:
   type: LoadBalancer
-  loadBalancerIP: 34.88.114.134:4000   # Updated loadBalancerIP
   selector:
     app: zone-printer
   ports:
@@ -130,7 +128,6 @@ metadata:
   name: whereami-service
 spec:
   type: LoadBalancer
-  loadBalancerIP: 34.88.114.134:5000   # Updated loadBalancerIP
   selector:
     app: whereami
   ports:
