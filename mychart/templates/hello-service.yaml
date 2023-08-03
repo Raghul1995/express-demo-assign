@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "hello-service-chart.fullname" . }}
+spec:
+  type: LoadBalancer
+  selector:
+    app: hello  # Update this line to match the deployment label for 'hello'
+  ports:
+    - port: 8080
+      targetPort: 8080

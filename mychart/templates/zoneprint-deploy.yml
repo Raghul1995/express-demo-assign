@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "zone-printer-chart.fullname" . }}
+  selector:
+    matchLabels:
+      app: zone-printer
+  template:
+    metadata:
+      labels:
+        app: zone-printer
+    spec:
+      containers:
+        - name: zone-printer
+          image: gcr.io/google-samples/zone-printer:0.2
+          ports:
+            - containerPort: 4000

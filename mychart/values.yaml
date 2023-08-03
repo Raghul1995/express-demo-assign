@@ -1,0 +1,14 @@
+# values.yaml
+image:
+  myAppImage: raghul1995/express-demo-app
+  helloImage: gcr.io/google-samples/hello-app:2.0
+  zonePrinterImage: gcr.io/google-samples/zone-printer:0.2
+  whereAmIImage: gcr.io/google-samples/whereami:v1.2.6
+
+service:
+  type: LoadBalancer
+
+replicas: 3
+
+strategy:
+  type: Recreate

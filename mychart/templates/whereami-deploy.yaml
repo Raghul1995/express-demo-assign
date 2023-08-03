@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "whereami-chart.fullname" . }}
+spec:
+  selector:
+    matchLabels:
+      app: whereami
+  template:
+    metadata:
+      labels:
+        app: whereami
+    spec:
+      containers:
+        - name: whereami
+          image: gcr.io/google-samples/whereami:v1.2.6
+          ports:
+            - containerPort: 5000

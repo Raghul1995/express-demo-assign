@@ -1,0 +1,4 @@
+apiVersion: v2
+name: my-app-chart
+version: 0.1.0
+description: A Helm chart for deploying my-app, hello, zone-printer, and whereami
