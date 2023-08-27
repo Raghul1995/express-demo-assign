@@ -1,11 +1,10 @@
 'use strict'
-
 var express = require("express");
 
 var app = module.exports = express()
 
 app.get('/', function(req, res){
-  res.send('Hello World continous deployment for GKE fifth again');
+  res.send('Hello World continous deployment for GKE');
 });
 
 
